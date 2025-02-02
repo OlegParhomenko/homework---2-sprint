@@ -1,12 +1,16 @@
-import React from 'react'
+import React, {SetStateAction} from 'react'
 import {pureOnBlur} from '../GreetingContainer'
+import {UserType} from "../HW3";
 
-let name: any
-let error: any
-const setError = (a: any) => {
-    error = a
-}
-
+let name: string
+let error: string
+const setError: React.Dispatch<React.SetStateAction<string>> = (newError) => {
+    if (typeof newError === 'function') {
+        error = newError(error); // если передали функцию, вызываем её с текущим значением error
+    } else {
+        error = newError; // если передали строку, просто присваиваем
+    }
+};
 beforeEach(() => {
     name = ''
     error = ''

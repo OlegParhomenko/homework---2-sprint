@@ -1,23 +1,27 @@
 import React from 'react'
 import {pureAddUser} from '../GreetingContainer'
 
-let name: any
-const setName = (a: any) => {
-    name = a
-}
-let error: any
-const setError = (a: any) => {
-    error = a
-}
-let added: any
-const addUserCallback = () => {
-    added = true
-}
+let name: string
+let addedName: string | null;
+
+const setName: React.Dispatch<React.SetStateAction<string>> = (n) => {
+    name = typeof n === 'function' ? n(name) : n;
+};
+let error: string
+const setError: React.Dispatch<React.SetStateAction<string>> = (e) => {
+    error = typeof e === 'function' ? e(error) : e;
+};
+let added: boolean
+const addUserCallback = (newUser: string) => {
+    added = true;
+    addedName = newUser;
+};
 
 beforeEach(() => {
     name = ''
     error = ''
     added = false
+    addedName = null
 })
 
 test('name 1', () => {

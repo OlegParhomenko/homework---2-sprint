@@ -27,7 +27,7 @@ export const message0: MessageType = {
     id: 0,
     user: {
         avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/T_Roosevelt.jpg/250px-T_Roosevelt.jpg', // можно менять
-        name: 'Теодорщ',  // можно менять
+        name: 'Теодор',  // можно менять
     },
     message: {
         text: 'Lorem ipsum dolor sit amet', // можно менять
